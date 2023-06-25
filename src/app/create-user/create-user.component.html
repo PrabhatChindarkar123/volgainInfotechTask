@@ -1,0 +1,31 @@
+<div class="dialog">
+    <div class="header">
+        <h2 *ngIf="!viewMode">Add New User</h2>
+        <h2 *ngIf="viewMode">View User</h2>
+    </div>
+    <div class="body">
+        <form [formGroup]="userDetailsForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput formControlName="phoneNum">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address"></textarea>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="footer">
+        <button mat-raised-button color="warn" (click)="close()"  >Close</button>
+        <button mat-raised-button color="primary" (click)="addUser()" [disabled]="userDetailsForm.invalid" *ngIf="!viewMode">Add User</button>
+    </div>
+
+</div>

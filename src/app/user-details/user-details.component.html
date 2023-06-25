@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <mat-form-field (click)="$event.stopPropagation();" appearance="outline">
+            <input matInput placeholder="Search" #searchInput (input)="searchUsers(searchInput.value)"
+                autocomplete="off">
+        </mat-form-field>
+        <button class="add_user" (click)="addUser()" mat-raised-button color="primary">Add User</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let head of headers">{{head}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tableData ; let i = index">
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneNum}}</td>
+                <td>
+                    <div>
+                        <button mat-raised-button (click)="delete(i)" color="warn">Delete</button>
+                        <button mat-raised-button (click)="details(item)">Details</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
